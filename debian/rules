@@ -18,12 +18,14 @@ override_dh_install:
 	mkdir -p $(DESTDIR)/usr/share/doc/yourls
 	
 	mkdir -p $(DESTDIR)/var/lib/yourls/plugins
+	mkdir -p $(DESTDIR)/var/lib/yourls/languages
 	mkdir -p $(DESTDIR)/etc/yourls
 
-	install -m 0644 -o root -g root *.php robots.txt $(DESTDIR)/usr/share/yourls
-	install -m 0644 -o root -g root sample-*.txt readme.html changelog.txt $(DESTDIR)/usr/share/doc/yourls
-	install -m 0644 -o root -g root css/* $(DESTDIR)/usr/share/yourls/css
+	install -m 0644 -o root -g root *.php $(DESTDIR)/usr/share/yourls
+	install -m 0644 -o root -g root sample-*.txt readme.html CONTRIBUTING.md README.md $(DESTDIR)/usr/share/doc/yourls
+	install -m 0644 -o root -g root CHANGELOG.md $(DESTDIR)/usr/share/doc/yourls/changelog
 	install -m 0644 -o root -g root admin/* $(DESTDIR)/usr/share/yourls/admin
+	install -m 0644 -o root -g root css/* $(DESTDIR)/usr/share/yourls/css
 	install -m 0644 -o root -g root images/* $(DESTDIR)/usr/share/yourls/images
 	install -m 0644 -o root -g root includes/*.php $(DESTDIR)/usr/share/yourls/includes
 	install -m 0644 -o root -g root includes/geo/GeoIP.dat $(DESTDIR)/usr/share/yourls/includes/geo
@@ -31,7 +33,11 @@ override_dh_install:
 	install -m 0644 -o root -g root includes/geo/flags/* $(DESTDIR)/usr/share/yourls/includes/geo/flags
 	install -m 0644 -o root -g root js/* $(DESTDIR)/usr/share/yourls/js
 	install -m 0644 -o root -g root pages/* $(DESTDIR)/usr/share/yourls/pages
+	install -m 0644 -o root -g root user/index.html $(DESTDIR)/usr/share/yourls/user
+	install -m 0644 -o root -g root user/languages/index.html $(DESTDIR)/var/lib/yourls/languages
+	install -m 0644 -o root -g root user/plugins/index.html $(DESTDIR)/var/lib/yourls/plugins
 	ln -s /var/lib/yourls/plugins $(DESTDIR)/usr/share/yourls/user/plugins
+	ln -s /var/lib/yourls/languages $(DESTDIR)/usr/share/yourls/user/languages
 	ln -s /etc/yourls/config.php $(DESTDIR)/usr/share/yourls/user/config.php
 
 	install -m 0644 -o root -g root debian/default_htaccess $(DESTDIR)/usr/share/yourls/.htaccess
