@@ -1,0 +1,24 @@
+yourls (1.5-1ubuntu4) oneiric; urgency=low
+
+  * fixed missing includes 
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Wed, 25 Apr 2012 20:10:58 +0200
+
+yourls (1.5-1ubuntu3) oneiric; urgency=low
+
+  * allow www-data to edit the configuration 
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Tue, 24 Apr 2012 08:15:46 +0200
+
+yourls (1.5-1ubuntu2) oneiric; urgency=low
+
+  * put configuration into /etc/yourls
+  * plugins go into /var/lib/yourls/plugins
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Tue, 24 Apr 2012 08:10:02 +0200
+
+yourls (1.5-1ubuntu1) oneiric; urgency=low
+
+  * Initial release.
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Mon, 23 Apr 2012 20:31:23 +0200

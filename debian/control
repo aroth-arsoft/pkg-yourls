@@ -1,0 +1,16 @@
+Source: yourls
+Section: web
+Priority: optional
+Maintainer: Andreas Roth <aroth@arsoft-online.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.2
+Homepage: http://yourls.org/
+
+Package: yourls
+Architecture: all
+Depends: ${misc:Depends}
+Description: URL shortening service using PHP and MySQL
+ YOURLS is a small set of PHP scripts that will allow you to run
+ your own URL shortening service (a la TinyURL). You can make it 
+ private or public, you can pick custom keyword URLs, it comes 
+ with its own API. You will love it.

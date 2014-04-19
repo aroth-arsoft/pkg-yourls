@@ -1,0 +1,38 @@
+#!/usr/bin/make -f
+DESTDIR=debian/yourls
+
+%:
+	dh $@
+
+override_dh_install:
+	mkdir -p $(DESTDIR)/usr/share/yourls
+	mkdir -p $(DESTDIR)/usr/share/yourls/css
+	mkdir -p $(DESTDIR)/usr/share/yourls/admin
+	mkdir -p $(DESTDIR)/usr/share/yourls/images
+	mkdir -p $(DESTDIR)/usr/share/yourls/includes
+	mkdir -p $(DESTDIR)/usr/share/yourls/includes/geo
+	mkdir -p $(DESTDIR)/usr/share/yourls/includes/geo/flags
+	mkdir -p $(DESTDIR)/usr/share/yourls/js
+	mkdir -p $(DESTDIR)/usr/share/yourls/pages
+	mkdir -p $(DESTDIR)/usr/share/yourls/user
+	mkdir -p $(DESTDIR)/usr/share/doc/yourls
+	
+	mkdir -p $(DESTDIR)/var/lib/yourls/plugins
+	mkdir -p $(DESTDIR)/etc/yourls
+
+	install -m 0644 -o root -g root *.php robots.txt $(DESTDIR)/usr/share/yourls
+	install -m 0644 -o root -g root sample-*.txt readme.html changelog.txt $(DESTDIR)/usr/share/doc/yourls
+	install -m 0644 -o root -g root css/* $(DESTDIR)/usr/share/yourls/css
+	install -m 0644 -o root -g root admin/* $(DESTDIR)/usr/share/yourls/admin
+	install -m 0644 -o root -g root images/* $(DESTDIR)/usr/share/yourls/images
+	install -m 0644 -o root -g root includes/*.php $(DESTDIR)/usr/share/yourls/includes
+	install -m 0644 -o root -g root includes/geo/GeoIP.dat $(DESTDIR)/usr/share/yourls/includes/geo
+	install -m 0644 -o root -g root includes/geo/geoip.inc $(DESTDIR)/usr/share/yourls/includes/geo
+	install -m 0644 -o root -g root includes/geo/flags/* $(DESTDIR)/usr/share/yourls/includes/geo/flags
+	install -m 0644 -o root -g root js/* $(DESTDIR)/usr/share/yourls/js
+	install -m 0644 -o root -g root pages/* $(DESTDIR)/usr/share/yourls/pages
+	ln -s /var/lib/yourls/plugins $(DESTDIR)/usr/share/yourls/user/plugins
+	ln -s /etc/yourls/config.php $(DESTDIR)/usr/share/yourls/user/config.php
+
+	install -m 0644 -o root -g root debian/default_htaccess $(DESTDIR)/usr/share/yourls/.htaccess
+	install -m 0640 -o www-data -g www-data debian/default_config.php $(DESTDIR)/etc/yourls/config.php
