@@ -1,3 +1,9 @@
+yourls (1.7.1-1ubuntu1) wily; urgency=medium
+
+  * new upstream version 1.7.1
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sat, 02 Jan 2016 12:48:11 +0100
+
 yourls (1.7-1ubuntu1) saucy; urgency=low
 
   * new upstream version 1.7
